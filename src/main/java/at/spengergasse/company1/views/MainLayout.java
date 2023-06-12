@@ -3,6 +3,7 @@ package at.spengergasse.company1.views;
 import at.spengergasse.company1.views.about.AboutView;
 import at.spengergasse.company1.views.employees.EmployeeFormView;
 import at.spengergasse.company1.views.employees.EmployeesList;
+import at.spengergasse.company1.views.matrix.MatrixView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -59,6 +60,8 @@ public class MainLayout extends AppLayout {
         nav.add(createNavItem("About", AboutView.class, VaadinIcon.FILE));
         nav.add(createNavItem("Employees Form", EmployeeFormView.class, VaadinIcon.FILE));
         nav.add(createNavItem("Employees List", EmployeesList.class, VaadinIcon.TABLE));
+        nav.add(createNavItem("Matrix View", MatrixView.class, VaadinIcon.TABLE));
+
 
         return nav;
     }

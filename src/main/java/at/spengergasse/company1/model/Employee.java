@@ -9,7 +9,7 @@ import javax.validation.constraints.Email;
 public class Employee implements Serializable {
 
     private static final int MAX_SALARY = 100000;
-    private static Long idCounter = 1000L;
+    public static Long idCounter = 1000L;
 
     // keep konsistent with csv-ctor
     public enum Role { ADMIN, ASSISTANT, DEVELOPER, ANALYST, MANAGER};

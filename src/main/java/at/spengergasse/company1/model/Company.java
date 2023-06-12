@@ -79,6 +79,9 @@ public class Company implements Serializable {
 
     public void hire(Employee emp) throws CompanyException {
         if (emp != null) {
+            if (emp.getId() == null) {
+                emp.setId(Employee.idCounter++);
+            }
             if (!staff.contains(emp)) {
                 staff.add(emp);
             } else {

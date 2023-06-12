@@ -48,6 +48,9 @@ public class UIFactory {
     public static void error(String header, Throwable e) {
         Notification notification = new Notification();
         notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
+
+        e.printStackTrace();
+
         Div text = new Div(
                 new Text(header),
                 new Paragraph(readCause(e))

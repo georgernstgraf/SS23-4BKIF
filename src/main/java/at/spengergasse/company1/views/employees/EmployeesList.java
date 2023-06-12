@@ -5,6 +5,8 @@ import at.spengergasse.company1.model.CompanyException;
 import at.spengergasse.company1.model.Employee;
 import at.spengergasse.company1.util.UIFactory;
 import at.spengergasse.company1.views.MainLayout;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.grid.ColumnTextAlign;
@@ -15,9 +17,13 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.function.SerializableConsumer;
+import com.vaadin.flow.function.ValueProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+
+import at.spengergasse.company1.views.employees.EmployeeFormView;
 
 @PageTitle("Employees (List)")
 @Route(value = "employees-list", layout = MainLayout.class)
@@ -59,11 +65,11 @@ public class EmployeesList extends Div {
                     return actionLayout;
                 }
         ).setHeader("Fire")
-        .setWidth("100px")
-        .setTextAlign(ColumnTextAlign.END)
-        .setFrozenToEnd(true)
-        .setAutoWidth(true)
-        .setFlexGrow(0);
+                .setWidth("100px")
+                .setTextAlign(ColumnTextAlign.END)
+                .setFrozenToEnd(true)
+                .setAutoWidth(true)
+                .setFlexGrow(0);
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid.addClassNames(LumoUtility.Border.TOP, LumoUtility.BorderColor.CONTRAST_10);
@@ -73,7 +79,8 @@ public class EmployeesList extends Div {
     }
 
     private void edit(Employee employee) {
-        // TODO
+       Long id = employee.getId();
+       getUI().ifPresent(ui -> ui.navigate(at.spengergasse.company1.views.employees.EmployeeFormView.class, id));
     }
 
     private void delete(Employee employee) {
