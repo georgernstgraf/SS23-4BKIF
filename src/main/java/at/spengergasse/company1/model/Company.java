@@ -58,10 +58,10 @@ public class Company implements Serializable {
     }
 
     public void setCompanyName(String companyName) throws CompanyException {
-        if (companyName != null) {
+        if (companyName != null && !companyName.isEmpty() && !companyName.isBlank()) {
             this.companyName = companyName;
         } else {
-            throw new CompanyException("Invalid name: null. ");
+            throw new CompanyException("Invalid name. Empty or null.");
         }
     }
 
@@ -261,6 +261,7 @@ public class Company implements Serializable {
 
     public static Company readFromFile(InputStream is) throws CompanyException {
         Company company = new Company("n/a", "n/a");
+
         if (is != null) {
             InputStreamReader isr = new InputStreamReader(is);
             try (BufferedReader br = new BufferedReader(isr)) {

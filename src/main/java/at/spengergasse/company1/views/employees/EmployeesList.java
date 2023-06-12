@@ -21,15 +21,15 @@ import com.vaadin.flow.function.SerializableConsumer;
 import com.vaadin.flow.function.ValueProvider;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.theme.lumo.LumoUtility;
-
-import at.spengergasse.company1.views.employees.EmployeeFormView;
 
 @PageTitle("Employees (List)")
 @Route(value = "employees-list", layout = MainLayout.class)
 public class EmployeesList extends Div {
 
     private Grid<Employee> grid;
+
 
     public EmployeesList() {
         initUI();
@@ -80,7 +80,7 @@ public class EmployeesList extends Div {
 
     private void edit(Employee employee) {
        Long id = employee.getId();
-       getUI().ifPresent(ui -> ui.navigate(at.spengergasse.company1.views.employees.EmployeeFormView.class, id));
+       getUI().ifPresent(ui -> ui.navigate(EmployeeFormView.class, id));
     }
 
     private void delete(Employee employee) {
@@ -99,6 +99,4 @@ public class EmployeesList extends Div {
         grid.setItems(Company.getInstance().getStaff());
     }
 
-    public static class EmployeeFormView {
-    }
 }

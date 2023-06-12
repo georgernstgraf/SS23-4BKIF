@@ -1,6 +1,8 @@
 package at.spengergasse.company1.views;
 
+import at.spengergasse.company1.model.Company;
 import at.spengergasse.company1.views.about.AboutView;
+import at.spengergasse.company1.views.company.CompanyView;
 import at.spengergasse.company1.views.employees.EmployeeFormView;
 import at.spengergasse.company1.views.employees.EmployeesList;
 import at.spengergasse.company1.views.matrix.MatrixView;
@@ -58,6 +60,7 @@ public class MainLayout extends AppLayout {
         VerticalLayout nav = new VerticalLayout();
         nav.setSpacing(false);
         nav.add(createNavItem("About", AboutView.class, VaadinIcon.FILE));
+        nav.add(createNavItem("Company", CompanyView.class, VaadinIcon.HOSPITAL));
         nav.add(createNavItem("Employees Form", EmployeeFormView.class, VaadinIcon.FILE));
         nav.add(createNavItem("Employees List", EmployeesList.class, VaadinIcon.TABLE));
         nav.add(createNavItem("Matrix View", MatrixView.class, VaadinIcon.TABLE));
