@@ -1,11 +1,9 @@
 package at.spengergasse.company1.views;
 
-import at.spengergasse.company1.model.Company;
 import at.spengergasse.company1.views.about.AboutView;
-import at.spengergasse.company1.views.company.CompanyView;
-import at.spengergasse.company1.views.employees.EmployeeFormView;
-import at.spengergasse.company1.views.employees.EmployeesList;
-import at.spengergasse.company1.views.matrix.MatrixView;
+import at.spengergasse.company1.views.calculator.CalculatorView;
+import at.spengergasse.company1.views.employees.EmployeeForm;
+import at.spengergasse.company1.views.employees.EmployeeListView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -60,11 +58,10 @@ public class MainLayout extends AppLayout {
         VerticalLayout nav = new VerticalLayout();
         nav.setSpacing(false);
         nav.add(createNavItem("About", AboutView.class, VaadinIcon.FILE));
-        nav.add(createNavItem("Company", CompanyView.class, VaadinIcon.HOSPITAL));
-        nav.add(createNavItem("Employees Form", EmployeeFormView.class, VaadinIcon.FILE));
-        nav.add(createNavItem("Employees List", EmployeesList.class, VaadinIcon.TABLE));
-        nav.add(createNavItem("Matrix View", MatrixView.class, VaadinIcon.TABLE));
+        nav.add(createNavItem("Employee Form", EmployeeForm.class, VaadinIcon.FORM));
+        nav.add(createNavItem("Employees (List)", EmployeeListView.class, VaadinIcon.TABLE));
 
+        nav.add(createNavItem("Calculator", CalculatorView.class, VaadinIcon.CALC));
 
         return nav;
     }

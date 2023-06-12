@@ -30,6 +30,8 @@ public class Company implements Serializable {
     }
 
     private static Company companyInstance = null;
+
+    // Singleton-Pattern
     public static Company getInstance() {
         if (companyInstance == null) {
             companyInstance = new Company();
@@ -58,10 +60,10 @@ public class Company implements Serializable {
     }
 
     public void setCompanyName(String companyName) throws CompanyException {
-        if (companyName != null && !companyName.isEmpty() && !companyName.isBlank()) {
+        if (companyName != null) {
             this.companyName = companyName;
         } else {
-            throw new CompanyException("Invalid name. Empty or null.");
+            throw new CompanyException("Invalid name: null. ");
         }
     }
 
@@ -79,7 +81,7 @@ public class Company implements Serializable {
 
     public void hire(Employee emp) throws CompanyException {
         if (emp != null) {
-            if (emp.getId() == null) {
+	        if (emp.getId() == null) {
                 emp.setId(Employee.idCounter++);
             }
             if (!staff.contains(emp)) {
@@ -261,7 +263,6 @@ public class Company implements Serializable {
 
     public static Company readFromFile(InputStream is) throws CompanyException {
         Company company = new Company("n/a", "n/a");
-
         if (is != null) {
             InputStreamReader isr = new InputStreamReader(is);
             try (BufferedReader br = new BufferedReader(isr)) {
